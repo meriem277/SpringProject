@@ -1,0 +1,7 @@
+.custom-logo {
+  color: #007BFF; /* Couleur bleue */
+  font-family: 'Poppins', sans-serif; /* Police moderne */
+  font-size: 24px; /* Taille de la police */
+  font-weight: 600; /* Épaisseur de la police */
+  text-transform: uppercase; /* Optionnel : mettre le texte en majuscules */
+}

@@ -1,0 +1,45 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Brand/Logo -->
+    <a class="navbar-brand custom-logo" href="#">RentEase</a>
+
+    <!-- Toggle button for mobile -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/residences">Residences</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/apartments">Apartments</a>
+        </li>
+      </ul>
+
+      <!-- Boutons à droite -->
+      <div class="d-flex">
+        <button class="btn btn-primary me-2" style="background-color: #87CEEB; border: none;">
+          <i class="fas fa-plus"></i> Add Residence
+        </button>
+        <button class="btn btn-primary" style="background-color: #87CEEB; border: none;">
+          <i class="fas fa-user"></i> Profile
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

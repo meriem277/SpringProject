@@ -1,0 +1,78 @@
+<div class="container mt-4 bg-light p-4 rounded">
+  <style>
+    /* Effet de survol pour la carte */
+    .hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .hover-effect:hover {
+      transform: translateY(-5px); /* Légère élévation au survol */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+    }
+
+    /* Effet de survol pour les boutons */
+    .hover-effect-btn {
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hover-effect-btn:hover {
+      transform: scale(1.05); /* Légère augmentation de taille au survol */
+    }
+
+    /* Style personnalisé pour le bouton "Like" */
+    .btn-outline-info {
+      border-color: #87CEEB; /* Bleu ciel */
+      color: #87CEEB; /* Bleu ciel */
+    }
+
+    .btn-outline-info:hover {
+      background-color: #87CEEB; /* Bleu ciel au survol */
+      color: white; /* Texte blanc au survol */
+    }
+
+    /* Style personnalisé pour le bouton "Details" */
+    .btn-primary {
+      background-color: #007BFF; /* Bleu */
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3; /* Bleu plus foncé au survol */
+    }
+
+    /* Style pour l'image de la carte */
+    .card-img-top {
+      border-radius: 10px 10px 0 0; /* Bordures arrondies en haut */
+      height: 200px;
+      object-fit: cover; /* Ajustement de l'image */
+    }
+  </style>
+
+  <div class="row">
+    <div class="col-md-6 mb-4" *ngFor="let residence of listResidences">
+      <div class="card shadow-lg border-0 hover-effect"> <!-- Ajout d'une classe pour l'effet de survol -->
+        <img [src]="residence.image" class="card-img-top" alt="{{ residence.name }}">
+        <div class="card-body text-center">
+          <h5 class="card-title text-primary fw-bold mb-3">{{ residence.name }}</h5> <!-- Espacement ajouté -->
+          <p class="card-text mb-3"> <!-- Espacement ajouté -->
+            <strong>Status :</strong>
+            <span *ngIf="residence.status === 'Disponible'" class="text-primary">✅ Disponible</span>
+            <span *ngIf="residence.status === 'En Construction'" class="text-info">🚧 En Construction</span>
+            <span *ngIf="residence.status === 'Vendu'" class="text-danger">❌ Vendu</span>
+          </p>
+          <div class="d-flex justify-content-between">
+            <button class="btn btn-primary btn-sm px-3 hover-effect-btn" (click)="showLocation(residence)">
+              {{ residence.address === 'inconnu' ? 'Address Unknown' : 'Show Location' }}
+            </button>
+            <button class="btn btn-outline-info btn-sm px-3 hover-effect-btn" (click)="addToFavorites(residence)">
+               Like
+            </button>
+            <button [routerLink]="['/residencesDetail', residence.id]" class="btn btn-primary btn-sm px-3 hover-effect-btn">
+              Details
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
