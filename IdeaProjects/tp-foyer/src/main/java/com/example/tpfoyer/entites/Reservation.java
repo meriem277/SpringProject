@@ -8,12 +8,14 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "Reservation") // Assurez-vous du bon nom de table
 public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,10 @@ public class Reservation implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date  anneeUniversitaie ;
     private  boolean estValide ;
-
+    // relation bidirectionnelle etudiant reservation (*-*)
+    @ManyToMany
+    private List<Etudiant> etudiants ;
 }
+
+
 

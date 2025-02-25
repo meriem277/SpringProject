@@ -1,15 +1,13 @@
 package com.example.tpfoyer.entites;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 
@@ -25,6 +23,13 @@ public class Foyer implements Serializable {
 
     private String nomfoyer;
     private Long capaciteFoyer;
+    // relation bidirectionnelle foyer bloc (1-*)
+    @OneToMany( mappedBy = "foyer")
+    private List<Bloc> blocs ;
+
+    // relation bidirectionnelle foyer universite (1-1)
+    @OneToOne (mappedBy = "foyer")
+    private Universite universite ;
 }
 
 

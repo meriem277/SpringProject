@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,6 +25,11 @@ public class Etudiant implements Serializable {
     private String ecole ;
     @Temporal(TemporalType.DATE)
     private Date dateNaissance ;
+
+    // relation bidirectionnelle etudiant reservation (*-*)
+    @ManyToMany( mappedBy = "etudiants")
+
+    private List<Reservation> reservations ;
 
 
 }

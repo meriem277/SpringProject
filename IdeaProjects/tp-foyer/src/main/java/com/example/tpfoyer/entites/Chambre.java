@@ -1,15 +1,13 @@
 package com.example.tpfoyer.entites;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Getter
@@ -21,6 +19,17 @@ public class Chambre implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idchambre ;
     private  long numerochambre ;
+    @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+    // relation bidirectionnelle bloc chambre (1-*)
+    @ManyToOne
+    private Bloc bloc ;
+
+    //relation unidirectionnelle chambre reservation (1-*)
+    @OneToMany
+    private List<Reservation> reservations;
+
+
+
 }
 
