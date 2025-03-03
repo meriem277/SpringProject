@@ -1,6 +1,6 @@
 package com.example.tpfoyer.service;
 
-import com.example.tpfoyer.entites.Foyer;
+import com.example.tpfoyer.entites.Universite;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,29 +8,24 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class FoyerService implements IFoyerService{
+public class UniversiteService implements IUniversiteService{
     @Override
-    public List<Foyer> retrieveAllFoyers() {
+    public List<Universite> retrieveAllUniversities() {
         return null;
     }
 
     @Override
-    public Foyer addFoyer(Foyer f) {
+    public Universite addUniversite(Universite u) {
         return null;
     }
 
     @Override
-    public Foyer updateFoyer(Foyer f) {
+    public Universite updateUniversite(Universite u) {
         return null;
     }
 
     @Override
-    public Foyer retrieveFoyer(long idFoyer) {
+    public Universite retrieveUniversite(long idUniversite) {
         return null;
-    }
-
-    @Override
-    public void removeFoyer(long idFoyer) {
-
     }
 }

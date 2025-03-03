@@ -1,36 +1,30 @@
 package com.example.tpfoyer.service;
 
-import com.example.tpfoyer.entites.Foyer;
+import com.example.tpfoyer.entites.Chambre;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 @Service
 @AllArgsConstructor
-public class FoyerService implements IFoyerService{
+public class ChambreService implements IChambreService {
     @Override
-    public List<Foyer> retrieveAllFoyers() {
+    public List<Chambre> retrieveAllChambres() {
         return null;
     }
 
     @Override
-    public Foyer addFoyer(Foyer f) {
+    public Chambre addChambre(Chambre c) {
         return null;
     }
 
     @Override
-    public Foyer updateFoyer(Foyer f) {
+    public Chambre updateChambre(Chambre c) {
         return null;
     }
 
     @Override
-    public Foyer retrieveFoyer(long idFoyer) {
+    public Chambre retrieveChambre(long idChambre) {
         return null;
-    }
-
-    @Override
-    public void removeFoyer(long idFoyer) {
-
     }
 }

@@ -15,10 +15,9 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Reservation") // Assurez-vous du bon nom de table
 public class Reservation implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY) parceque genratevalue  is only for int
     private  String idReservation;
     @Temporal(TemporalType.DATE)
     private Date  anneeUniversitaie ;
