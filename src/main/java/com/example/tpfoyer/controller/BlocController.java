@@ -4,6 +4,7 @@ import com.example.tpfoyer.entites.Bloc;
 import com.example.tpfoyer.service.IBlocService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +38,8 @@ public class BlocController {
     public void removeBloc(@PathVariable Long id) {
         blocService.removeBloc(id);
     }
-
+    @PutMapping("/affecterChambres/{idBloc}")
+    public ResponseEntity<Bloc> affecterChambres(@PathVariable long idBloc, @RequestBody List<Long> numChambres) {
+        return ResponseEntity.ok(blocService.affecterChambresABloc(numChambres, idBloc));
+    }
 }

@@ -17,4 +17,8 @@ public interface IChambreService {
     List<Chambre> findByBlocIdBlocAndTypeChambre(Long blocIdBloc, TypeChambre typeChambre);
 
     List<Chambre> getChambresParBlocEtTypeJPQL(Long idBloc, TypeChambre typeChambre);
+
+    void saveAll(List<Chambre> chambres);
+
+    List<Chambre> findAllById(List<Long> ids);
 }

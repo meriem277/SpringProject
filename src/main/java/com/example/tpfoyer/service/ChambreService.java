@@ -48,4 +48,15 @@ public class ChambreService implements IChambreService {
     public List<Chambre> getChambresParBlocEtTypeJPQL(Long idBloc, TypeChambre typeC) {
         return chambreRepository.getChambresParBlocEtType(idBloc, typeC);
     }
+
+    @Override
+    public void saveAll(List<Chambre> chambres) {
+
+    }
+
+    @Override
+    public List<Chambre> findAllById(List<Long> ids) {
+        return chambreRepository.findAllById(ids);
+    }
+
 }

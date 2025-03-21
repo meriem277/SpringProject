@@ -1,8 +1,11 @@
 package com.example.tpfoyer.controller;
 
 import com.example.tpfoyer.entites.Foyer;
+import com.example.tpfoyer.entites.Universite;
 import com.example.tpfoyer.service.IFoyerService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,5 +34,14 @@ public class FoyerController {
     @DeleteMapping("/{id}")
     public void removeBloc(@PathVariable Long id) {
         foyerService.removeFoyer(id);
+    }
+    @PostMapping("/ajouter")
+    public ResponseEntity<Foyer> ajouterFoyerEtAffecterAUniversite(@RequestBody Foyer foyer, @RequestParam long idUniversite) {
+        try {
+            Foyer savedFoyer = foyerService.ajouterFoyerEtAffecterAUniversite(foyer, idUniversite);
+            return new ResponseEntity<>(savedFoyer, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
     }
 }

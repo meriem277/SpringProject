@@ -3,6 +3,7 @@ package com.example.tpfoyer.controller;
 import com.example.tpfoyer.entites.Universite;
 import com.example.tpfoyer.service.IUniversiteService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,5 +33,13 @@ public class UniversiteController {
     public Universite retrieveUniversity(@PathVariable Long id) {
         return universiteService.retrieveUniversite(id);
     }
+    @PutMapping("/affecter/{idFoyer}/{nomUniversite}")
+    public ResponseEntity<Universite> affecterFoyer(@PathVariable long idFoyer, @PathVariable String nomUniversite) {
+        return ResponseEntity.ok(universiteService.affecterFoyerAUniversite(idFoyer, nomUniversite));
+    }
 
+    @PutMapping("/desaffecter/{idUniversite}")
+    public ResponseEntity<Universite> desaffecterFoyer(@PathVariable long idUniversite) {
+        return ResponseEntity.ok(universiteService.desaffecterFoyerAUniversite(idUniversite));
+    }
 }
