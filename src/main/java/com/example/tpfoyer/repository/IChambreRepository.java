@@ -22,9 +22,7 @@ public interface IChambreRepository extends JpaRepository<Chambre, Long> {
     public List<Chambre> getChambresParBlocEtType(Long idBloc, TypeChambre type);
 
     List<Chambre> findByBlocIdBlocAndTypeC(Long blocIdBloc, TypeChambre typeC);
-
-    List<Chambre> findByIdId(List<Long> ids);
-    Optional<Chambre> findByBlocId(long idBloc);
+    List<Chambre> findByBloc_IdBloc(long idBloc);
 
 
 }

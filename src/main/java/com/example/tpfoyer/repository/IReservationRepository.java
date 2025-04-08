@@ -16,7 +16,6 @@ public interface IReservationRepository extends JpaRepository <Reservation,Strin
                 "WHERE r.anneeUniversitaie = :givenYear " +
                 "AND r.bloc.foyer.universite.nomUniversite = :nomUniv")
         public List<Reservation> getReservationParAnneeUniversitaireEtNomUniversite(Date givenYear, String nomUniv);
-    List<Reservation> findByChambreId(long idChambre);
-    List<Reservation> findByEtudiantCin(long cinEtudiant);
+    List<Reservation> findByChambreIdchambre(long idChambre);  // Correction ici
     }
 

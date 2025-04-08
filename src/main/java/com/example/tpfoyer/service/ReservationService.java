@@ -50,18 +50,18 @@ public class ReservationService implements IReservationService{
         return reservationRepository.save(res);
     }
 
-    public Reservation ajouterReservation(long idBloc, long cinEtudiant) {
+    public Reservation ajouterReservation(long idBloc, long cin) {
         // Récupérer l'étudiant
-        Etudiant etudiant = etudiantRepository.findByCin(cinEtudiant);
+        Etudiant etudiant = etudiantRepository.findByCin(cin);
 
         // Récupérer la chambre en fonction du bloc (Assumer que chaque bloc contient des chambres)
-        Optional<Chambre> optionalChambre = chambreRepository.findByBlocId(idBloc);
+        Optional<Chambre> optionalChambre = chambreRepository.findById(idBloc);
 
         if (optionalChambre.isPresent()) {
             Chambre chambre = optionalChambre.get(); // Accéder à la chambre si présente
 
             // Vérifier la capacité de la chambre
-            int capacitéActuelle = reservationRepository.findByChambreId(chambre.getIdChambre()).size();
+            int capacitéActuelle = reservationRepository.findByChambreIdchambre (chambre.getIdChambre()).size();
             if ((chambre.getTypeC() == TypeChambre.SIMPLE && capacitéActuelle >= 1) ||
                     (chambre.getTypeC() == TypeChambre.DOUBLE && capacitéActuelle >= 2) ||
                     (chambre.getTypeC() == TypeChambre.TRIPLE && capacitéActuelle >= 3)) {

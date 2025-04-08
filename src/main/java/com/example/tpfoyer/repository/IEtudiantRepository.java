@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IEtudiantRepository extends JpaRepository<Etudiant, Integer> {
 
-    Etudiant findByCin(long cinEtudiant);
+    Etudiant findByCin(long cin);
 
 }

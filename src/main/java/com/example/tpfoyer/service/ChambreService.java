@@ -9,10 +9,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-@AllArgsConstructor
+
 public class ChambreService implements IChambreService {
 
-    private final IChambreRepository chambreRepository; // Lombok will generate constructor injection for this field
+    public ChambreService(IChambreRepository chambreRepository) {
+        this.chambreRepository = chambreRepository;
+    }
+
+    private final IChambreRepository chambreRepository;
+
 
     @Override
     public List<Chambre> retrieveAllChambres() {

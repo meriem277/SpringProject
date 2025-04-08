@@ -45,7 +45,7 @@ public class UniversiteService implements IUniversiteService{
         Foyer foyer = foyerRepository.findById(idFoyer)
                 .orElseThrow(() -> new RuntimeException("Foyer non trouvé"));
 
-        Universite universite = universiteRepository.findByNom(nomUniversite)
+        Universite universite = universiteRepository.findByNomUniversite(nomUniversite)
                 .orElseThrow(() -> new RuntimeException("Université non trouvée"));
 
         foyer.setUniversite(universite);

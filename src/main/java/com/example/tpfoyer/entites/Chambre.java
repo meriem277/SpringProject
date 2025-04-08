@@ -23,6 +23,7 @@ public class Chambre implements Serializable {
     private TypeChambre typeC;
     // relation bidirectionnelle bloc chambre (1-*)
     @ManyToOne
+    @JoinColumn(name = "id_bloc")
     private Bloc bloc ;
 
     //relation unidirectionnelle chambre reservation (1-*)
@@ -45,7 +46,7 @@ public class Chambre implements Serializable {
         this.numerochambre = numeroChambre;
     }
 
-    public TypeChambre getTypeChambre() {
+    public TypeChambre getTypeC() {
         return typeC;
     }
 
@@ -61,13 +62,6 @@ public class Chambre implements Serializable {
         this.bloc = bloc;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
 
 
 
